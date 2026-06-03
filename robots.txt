@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arogyadentalhisar.com/sitemap.xml
