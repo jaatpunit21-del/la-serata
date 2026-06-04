@@ -1,0 +1,18 @@
+# Git Ignore for Coffee Nation Cafe Web App
+
+# Ignored large files and model files
+*.onnx
+*.mp4
+app.py
+swap.py
+
+# Virtual environment & python caches
+.venv/
+venv/
+ENV/
+__pycache__/
+*.pyc
+
+# Local system files
+.DS_Store
+Thumbs.db
