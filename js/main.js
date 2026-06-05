@@ -200,4 +200,155 @@ document.addEventListener("DOMContentLoaded", () => {
     resizeBeforeImg();
     window.addEventListener("resize", resizeBeforeImg);
   }
+
+  // Header Scroll Effect
+  const header = document.querySelector(".header");
+  if (header) {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+  }
+
+  // FAQ Accordion Trigger
+  const faqHeaders = document.querySelectorAll(".faq-header");
+  if (faqHeaders.length > 0) {
+    faqHeaders.forEach(header => {
+      header.addEventListener("click", () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains("active");
+
+        // Close all items
+        document.querySelectorAll(".faq-item").forEach(i => {
+          i.classList.remove("active");
+        });
+
+        // Toggle current item
+        if (!isActive) {
+          item.classList.add("active");
+        }
+      });
+    });
+  }
+
+  // Simulated 3D Virtual Tour Controller
+  const tourTabs = document.querySelectorAll(".tour-tab-btn");
+  const tourBgPan = document.querySelector(".tour-bg-pan");
+  const tourTitle = document.querySelector(".tour-details-title");
+  const tourDesc = document.querySelector(".tour-details-desc");
+  const tourCap = document.querySelector("#tour-stat-capacity");
+  const tourSetup = document.querySelector("#tour-stat-setup");
+  const tourViewer = document.querySelector(".tour-viewer-frame");
+
+  // Space data configuration
+  const spaceData = {
+    lounge: {
+      image: "assets/backgrounds/bg3.png?v=2",
+      title: "The Royal Banquet Hall",
+      desc: "A majestic double-height hall featuring grand golden chandeliers, premium acoustic paneling, and an elegant stage setup. Perfect for royal weddings, receptions, and corporate conferences.",
+      capacity: "300 Guests",
+      setup: "Round Table Banquet Seating",
+      hotspots: [
+        { x: 50, y: 30, title: "Grand Chandeliers", desc: "Double-height ceilings with custom imported golden chandeliers." },
+        { x: 20, y: 60, title: "Vows Stage", desc: "Elegant, customizable stage for couple seating or presentations." }
+      ]
+    },
+    garden: {
+      image: "assets/backgrounds/bg1.png?v=2",
+      title: "The Grand Lawn",
+      desc: "Ahmedabad's finest lush green party lawn, sprawling over beautiful manicured gardens under the open sky. Perfect for grand reception starlit dinners, massive buffet spreads, and large scale social gatherings.",
+      capacity: "800 Guests",
+      setup: "Theater / Open Lawn Seating",
+      hotspots: [
+        { x: 45, y: 22, title: "Fairy Lights Canopy", desc: "Premium overhead evening canopy lighting." },
+        { x: 75, y: 55, title: "Wedding Mandap / Reception Stage", desc: "Spacious outdoor stage area for grand setups." }
+      ]
+    },
+    dining: {
+      image: "assets/backgrounds/bg4.png?v=2",
+      title: "The Courtyard Garden",
+      desc: "An intimate outdoor courtyard filled with natural flora and elegant tile paths. Ideal for sangeet nights, mehendi ceremonies, family get-togethers, or private cocktail celebrations.",
+      capacity: "150 Guests",
+      setup: "Cluster Seating / Standing Cocktail",
+      hotspots: [
+        { x: 40, y: 70, title: "Paved Walkways", desc: "Beautifully lit brick paths for guests." },
+        { x: 75, y: 65, title: "Cluster Lounge Seating", desc: "Comfortable lounge sofas under open sky." }
+      ]
+    },
+    private: {
+      image: "assets/backgrounds/bg2.png?v=2",
+      title: "VIP Bridal Suite",
+      desc: "An exclusive, fully air-conditioned private suite designed for bridal preparation, groom styling, or VIP greenroom hosting. Includes premium mirrors, private washrooms, and luxury couch seating.",
+      capacity: "Exclusive Use",
+      setup: "VIP Styling Lounge",
+      hotspots: [
+        { x: 30, y: 45, title: "Bridal Styling Vanity", desc: "Professional high-lumen vanity mirrors." },
+        { x: 70, y: 65, title: "Luxury Seating Area", desc: "Plush sofas for family and styling team." }
+      ]
+    }
+  };
+
+  const renderHotspots = (hotspots) => {
+    // Clear existing hotspots
+    if (!tourViewer) return;
+    const currentHotspots = tourViewer.querySelectorAll(".tour-hotspot");
+    currentHotspots.forEach(el => el.remove());
+
+    // Spawn new ones
+    hotspots.forEach(spot => {
+      const spotEl = document.createElement("div");
+      spotEl.className = "tour-hotspot";
+      spotEl.style.left = `${spot.x}%`;
+      spotEl.style.top = `${spot.y}%`;
+
+      const tooltipEl = document.createElement("div");
+      tooltipEl.className = "tour-tooltip";
+      tooltipEl.innerHTML = `<h4>${spot.title}</h4><p>${spot.desc}</p>`;
+
+      spotEl.appendChild(tooltipEl);
+      tourViewer.appendChild(spotEl);
+    });
+  };
+
+  if (tourTabs.length > 0 && tourBgPan) {
+    tourTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        // Toggle active tabs
+        tourTabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const spaceKey = tab.getAttribute("data-space");
+        const data = spaceData[spaceKey];
+
+        if (data) {
+          // Fade background panning image
+          tourBgPan.style.opacity = "0";
+          setTimeout(() => {
+            tourBgPan.style.backgroundImage = `url('${data.image}')`;
+            tourBgPan.style.opacity = "1";
+          }, 300);
+
+          // Update details text
+          tourTitle.textContent = data.title;
+          tourDesc.textContent = data.desc;
+          tourCap.textContent = data.capacity;
+          tourSetup.textContent = data.setup;
+
+          // Render hotspots
+          renderHotspots(data.hotspots);
+        }
+      });
+    });
+
+    // Initialize with first tab
+    const initialKey = tourTabs[0].getAttribute("data-space");
+    if (spaceData[initialKey]) {
+      renderHotspots(spaceData[initialKey].hotspots);
+    }
+  }
 });

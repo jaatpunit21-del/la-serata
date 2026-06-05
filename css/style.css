@@ -1,27 +1,32 @@
 /* 
-   Coffee Nation - Premium Styling & Design System
-   Color Palette: Deep Espresso, Roasted Amber, Crema Cream, and Ivory
+   La Serata Banquets & Party Lawn - Premium Luxury Styling & Event Space Design System
+   Inspired by James Leary Flood Mansion & Parlor Banquet
+   Color Palette: Deep warm black, rich dark bronze, champagne-gold, and soft ivory
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rouge+Script&display=swap');
 
 :root {
   /* Colors */
-  --bg-primary: #090706;
-  --bg-secondary: #120f0e;
-  --bg-card: #1c1715;
-  --primary: #d99252;
-  --primary-hover: #e5a871;
-  --primary-light: #f7d8be;
-  --primary-dark: #b87538;
-  --text-main: #f5ede6;
-  --text-muted: #a69588;
-  --border: #2e2520;
-  --border-light: rgba(217, 146, 82, 0.15);
+  --bg-primary: #090807;
+  --bg-secondary: #13110f;
+  --bg-card: #1b1714;
+  --primary: #c5a27d;
+  --primary-hover: #d4af37;
+  --primary-light: #f5efe6;
+  --primary-dark: #8c6b4f;
+  --text-main: #f5efe6;
+  --text-muted: #9d8e82;
+  --border: #25201c;
+  --border-light: rgba(197, 162, 125, 0.15);
+  --gold-glow: rgba(212, 175, 55, 0.2);
+  --gold-gradient: linear-gradient(135deg, #c5a27d 0%, #d4af37 100%);
   
   /* Fonts */
   --font-heading: 'Playfair Display', Georgia, serif;
+  --font-accent: 'Cinzel', serif;
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-cursive: 'Rouge Script', cursive;
   
   /* Layout */
   --radius-sm: 6px;
@@ -32,7 +37,7 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.7);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.9);
-  --shadow-glow: 0 0 25px rgba(217, 146, 82, 0.25);
+  --shadow-glow: 0 0 25px rgba(212, 175, 55, 0.25);
   
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --container-width: 1200px;
@@ -1774,3 +1779,550 @@ textarea.form-control {
     gap: 40px;
   }
 }
+
+/* ========================================================
+   LUXURY VENUE & ACCENTS CLASSES (FLOOD MANSION & PARLOR)
+   ======================================================== */
+
+.gold-accent-line {
+  width: 60px;
+  height: 2px;
+  background: var(--gold-gradient);
+  margin: 15px auto;
+}
+
+.gold-border-frame {
+  border: 1px solid var(--border);
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  background: var(--bg-card);
+}
+
+.gold-border-frame-inner {
+  border: 1px solid var(--border-light);
+  border-radius: calc(var(--radius-lg) - 8px);
+  padding: 30px;
+}
+
+.capacity-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.capacity-table th, .capacity-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.capacity-table th {
+  font-family: var(--font-accent);
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(197, 162, 125, 0.05);
+}
+
+.capacity-table tr:hover td {
+  background: rgba(197, 162, 125, 0.03);
+  color: var(--text-main);
+}
+
+.capacity-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(197, 162, 125, 0.1);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+/* FAQ Accordion Styles */
+.faq-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item:hover {
+  border-color: rgba(197, 162, 125, 0.3);
+}
+
+.faq-header {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-main);
+  user-select: none;
+}
+
+.faq-chevron {
+  color: var(--primary);
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+  font-weight: normal;
+}
+
+.faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+  padding: 0 24px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.faq-item.active .faq-content {
+  max-height: 1000px;
+  padding-bottom: 24px;
+  transition: max-height 0.5s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+/* Scrolled Header Effect */
+.header.scrolled {
+  background: rgba(9, 8, 7, 0.95) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Glassmorphic Cards & Badges */
+.glass-card {
+  background: rgba(27, 23, 20, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+}
+
+.champagne-tag {
+  display: inline-block;
+  font-family: var(--font-accent);
+  color: var(--primary-hover);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.center-decor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0 25px 0;
+}
+
+.center-decor::before, .center-decor::after {
+  content: '';
+  height: 1px;
+  width: 50px;
+  background: var(--border-light);
+}
+
+.decor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  transform: rotate(45deg);
+}
+
+/* Contact Page Specific Styles */
+.contact-grid-container {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .contact-grid-container {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+.contact-info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  margin-bottom: 30px;
+}
+.info-list-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.info-list-item:last-child {
+  margin-bottom: 0;
+}
+.info-item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(197, 162, 125, 0.08);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+.info-item-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.info-item-text h3 {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.info-item-text p {
+  color: var(--text-main);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.map-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  height: 300px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Redesigned Top Bar */
+.top-bar {
+  background-color: #070605;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+}
+
+.top-bar-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.top-bar-left, .top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.top-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.top-bar-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.top-bar-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.top-bar-socials a {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.top-bar-socials a:hover {
+  color: var(--primary-hover);
+}
+
+@media (max-width: 991px) {
+  .top-bar {
+    display: none;
+  }
+  .trust-bar {
+    margin-top: 80px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header {
+    position: fixed;
+    top: 37px; /* Position header below top bar */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .trust-bar {
+    margin-top: 117px; /* Combined height of top bar and header */
+  }
+}
+
+/* Cursive Callout typography */
+.cursive-accent {
+  font-family: var(--font-cursive);
+  font-size: 2.2rem;
+  color: var(--primary);
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Simulated 3D Virtual Tour */
+.simulated-tour-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 40px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.tour-viewer-frame {
+  position: relative;
+  height: 480px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.tour-bg-pan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%; /* Extended width for panning motion */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: panorama-sweep 40s linear infinite alternate;
+}
+
+@keyframes panorama-sweep {
+  0% { background-position: 10% center; }
+  100% { background-position: 90% center; }
+}
+
+.tour-overlay-glass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 35%, rgba(9, 8, 7, 0.7) 100%);
+  pointer-events: none;
+}
+
+.tour-hotspot {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: var(--primary);
+  border: 3px solid var(--text-main);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tour-hotspot::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: hotspot-pulse 2s infinite;
+}
+
+@keyframes hotspot-pulse {
+  0% { transform: scale(0.7); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.tour-hotspot:hover {
+  transform: scale(1.25);
+  background: var(--primary-hover);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 1);
+}
+
+.tour-tooltip {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  background: rgba(19, 17, 15, 0.95);
+  border: 1px solid var(--primary);
+  color: var(--text-main);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+
+.tour-tooltip h4 {
+  font-family: var(--font-accent);
+  color: var(--primary-hover);
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.tour-tooltip p {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.tour-hotspot:hover .tour-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scale(1);
+}
+
+.tour-control-panel {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 30px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .tour-control-panel {
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+  }
+}
+
+.tour-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tour-tab-btn {
+  text-align: left;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  font-family: var(--font-accent);
+  font-size: 14px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tour-tab-btn:hover, .tour-tab-btn.active {
+  border-color: var(--primary);
+  background: rgba(197, 162, 125, 0.08);
+  color: var(--primary-hover);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.tour-details-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tour-details-title {
+  font-family: var(--font-accent);
+  font-size: 1.6rem;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.tour-details-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.tour-stats-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.tour-stat-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  text-align: center;
+  flex: 1;
+}
+
+.tour-stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-family: var(--font-body);
+}
+
+.tour-stat-value {
+  font-family: var(--font-accent);
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+
+

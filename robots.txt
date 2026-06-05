@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tamasbysymphony.com/sitemap.xml
+Sitemap: https://laseratabanquets.com/sitemap.xml

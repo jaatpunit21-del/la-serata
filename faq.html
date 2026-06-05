@@ -3,101 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ | Frequently Asked Questions Tamas By Symphony Hisar</title>
-  <meta name="description" content="Find answers to common questions about Tamas By Symphony Hisar. Learn about our cuisines, garden patio, table reservations, and private events.">
+  <title>FAQ | Frequently Asked Questions | La Serata Banquets Ahmedabad</title>
+  <meta name="description" content="Find answers to common questions about venue bookings, guest capacities, catering options, valet parking, and decor regulations at La Serata Banquets & Party Lawn.">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tamasbysymphony.com/faq.html">
-  <meta property="og:title" content="FAQ | Frequently Asked Questions Tamas By Symphony Hisar">
-  <meta property="og:description" content="Got questions about Hisar's favorite restaurant lounge? Find out about table reservations, cuisines, garden patio, operating hours, and private events.">
-  <meta property="og:image" content="assets/hero_background.png">
+  <meta property="og:url" content="https://laseratabanquets.com/faq.html">
+  <meta property="og:title" content="FAQ | Frequently Asked Questions | La Serata Banquets Ahmedabad">
+  <meta property="og:description" content="Have questions about booking La Serata Banquets & Party Lawn? Find answers regarding capacities, catering prices, parking space, and booking terms.">
+  <meta property="og:image" content="assets/hero_background.png?v=2">
 
   <!-- Style Sheets -->
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* FAQ Accordion Styling */
-    .faq-accordion {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .faq-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: var(--transition);
-    }
-    .faq-item.active {
-      border-color: var(--primary);
-    }
-    .faq-trigger {
-      width: 100%;
-      text-align: left;
-      padding: 20px 24px;
-      font-family: var(--font-heading);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-main);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      background: transparent;
-      transition: var(--transition);
-    }
-    .faq-trigger:hover {
-      color: var(--primary);
-    }
-    .faq-icon {
-      font-size: 14px;
-      color: var(--text-muted);
-      transition: transform 0.3s ease;
-    }
-    .faq-item.active .faq-icon {
-      transform: rotate(180deg);
-      color: var(--primary);
-    }
-    .faq-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
-      padding: 0 24px;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    .faq-item.active .faq-content {
-      max-height: 200px; /* arbitrary height to slide down */
-      padding-bottom: 24px;
-    }
-  </style>
 </head>
 <body>
+
+  <!-- Top Metadata Bar (Inspired by Parlor Banquet) -->
+  <div class="top-bar">
+    <div class="container top-bar-flex">
+      <div class="top-bar-left">
+        <div class="top-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Inquiries Daily: 9:00 AM - 9:00 PM
+        </div>
+        <div class="top-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          +91 99256 75751
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Shilaj Circle, Ahmedabad
+        </div>
+        <div class="top-bar-socials">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Header -->
   <header class="header">
     <div class="container header-container">
       <a href="index.html" class="logo-link" id="header-logo">
-        <img src="assets/logo.png" alt="Tamas By Symphony Logo" class="logo-icon" style="object-fit: contain; width: 44px; height: 44px;">
+        <img src="assets/logo.png?v=2" alt="La Serata Logo" class="logo-icon" style="object-fit: contain; width: 44px; height: 44px;">
         <div class="logo-text">
-          Tamas By Symphony
-          <span>Kitchen & Lounge</span>
+          La Serata
+          <span>Banquets & Lawn</span>
         </div>
       </a>
 
-            <!-- Desktop Nav -->
+      <!-- Desktop Nav -->
       <nav class="nav" id="desktop-nav">
-        <a href="index.html" class="nav-link ">Home</a>
-        <a href="about.html" class="nav-link ">About Us</a>
-        <a href="gallery.html" class="nav-link ">Gallery</a>
-        <a href="reviews.html" class="nav-link ">Reviews</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="reviews.html" class="nav-link">Reviews</a>
         <a href="faq.html" class="nav-link active">FAQ</a>
-        <a href="contact.html" class="nav-link ">Contact</a>
-        <a href="book.html" class="btn btn-primary btn-sm" id="nav-book-btn" style="padding: 10px 20px; font-size: 14px;">Book a Table</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="book.html" class="btn btn-primary btn-sm" id="nav-book-btn" style="padding: 10px 20px; font-size: 14px;">Book Venue</a>
       </nav>
 
       <!-- Mobile Hamburger Toggle -->
@@ -109,15 +93,15 @@
     </div>
   </header>
 
-    <!-- Mobile Navigation Overlay Menu -->
+  <!-- Mobile Navigation Overlay Menu -->
   <div class="mobile-nav" id="mobile-nav">
-    <a href="index.html" class="mobile-nav-link ">Home</a>
-    <a href="about.html" class="mobile-nav-link ">About Us</a>
-    <a href="gallery.html" class="mobile-nav-link ">Gallery</a>
-    <a href="reviews.html" class="mobile-nav-link ">Reviews</a>
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="about.html" class="mobile-nav-link">About Us</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="reviews.html" class="mobile-nav-link">Reviews</a>
     <a href="faq.html" class="mobile-nav-link active">FAQ</a>
-    <a href="contact.html" class="mobile-nav-link ">Contact</a>
-    <a href="book.html" class="btn btn-primary" style="margin-top: 15px;">Book a Table</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="book.html" class="btn btn-primary" style="margin-top: 15px;">Book Venue</a>
   </div>
 
   <!-- Trust Bar Widget -->
@@ -127,20 +111,20 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
         </svg>
-        4.7/5 Google Rating
+        4.8/5 Google Rating
       </div>
       <div class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
         </svg>
-        Authentic Wood-Fired Pizzas
+        Grand Lawn & Banquet Hall
       </div>
       <div class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
         </svg>
-        Cozy Vintage Lounge Space
+        Valet Parking & Audio Setup
       </div>
       <div class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -148,88 +132,106 @@
           <line x1="8" y1="21" x2="16" y2="21"></line>
           <line x1="12" y1="17" x2="12" y2="21"></line>
         </svg>
-        Ambient Open-Air Dining
+        Gourmet Live Catering
       </div>
     </div>
   </section>
 
   <!-- FAQ Header Section -->
-  <section class="section section-bg text-center" style="padding: 60px 0;">
+  <section class="section" style="border-bottom: 1px solid var(--border);">
     <div class="container">
-      <span class="section-tag">COMMON QUESTIONS</span>
-      <h1 class="section-title">Frequently Asked Questions</h1>
-      <p class="section-subtitle">Find answers to common questions about Tamas By Symphony lounge spaces, hours, and dining amenities.</p>
-    </div>
-  </section>
+      <div class="text-center">
+        <span class="champagne-tag">COMMON QUESTIONS</span>
+        <h1 style="font-family: var(--font-accent); font-size: 2.75rem; font-weight: normal; margin-bottom: 10px;">Frequently Asked Questions</h1>
+        <div class="center-decor">
+          <div class="decor-dot"></div>
+        </div>
+        <p class="section-subtitle">Find answers to common queries about our premium banquet halls, party lawn space, catering packages, and site policies.</p>
+      </div>
 
-  <!-- FAQ Accordion -->
-  <section class="section">
-    <div class="container">
-      <div class="faq-accordion">
+      <!-- FAQ Accordion -->
+      <div class="faq-accordion" style="margin-top: 40px;">
         
         <!-- Q1 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            What are the operating hours of Tamas By Symphony Hisar?
-            <span class="faq-icon">▼</span>
-          </button>
+          <div class="faq-header">
+            What are the capacities of the different zones at La Serata?
+            <span class="faq-chevron">▼</span>
+          </div>
           <div class="faq-content">
-            <p>Tamas is open daily from 11:00 AM to 11:00 PM, seven days a week. We serve lunch, dinner, mocktails, and desserts throughout our opening hours.</p>
+            <p>La Serata offers multiple distinct zones to match different guest counts:</p>
+            <ul>
+              <li><strong>The Grand Lawn:</strong> Hosts up to 800 guests, perfect for grand wedding receptions and large exhibitions.</li>
+              <li><strong>The Royal Banquet Hall:</strong> Accommodates up to 300 guests, featuring a premium double-height ceiling and luxury chandeliers.</li>
+              <li><strong>The Courtyard Garden:</strong> Holds up to 150 guests, ideal for sangeet nights, mehendi ceremonies, or cocktail gatherings.</li>
+              <li><strong>VIP Bridal Suite & Groom Lounge:</strong> Private air-conditioned grooming areas for host preparation.</li>
+            </ul>
           </div>
         </div>
 
         <!-- Q2 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            Where is Tamas By Symphony located?
-            <span class="faq-icon">▼</span>
-          </button>
+          <div class="faq-header">
+            Where is the venue located and how is the parking?
+            <span class="faq-chevron">▼</span>
+          </div>
           <div class="faq-content">
-            <p>We are located on Main Road, Sector 9-11, Opposite Vidyut Nagar, Hisar, Haryana 125005. Our spacious property features a prominent main-road entrance with both indoor dining halls and a outdoor garden seating area.</p>
+            <p>We are situated Behind Shreedhar Corporate House, Near Shilaj Circle, Sardar Patel Ring Road, Shilaj, Ahmedabad. The venue offers wide access gates directly off the ring road, with a dedicated parking lot supporting up to 200 vehicles along with professional valet services.</p>
           </div>
         </div>
 
         <!-- Q3 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            Is there a charge to book a table or party deck?
-            <span class="faq-icon">▼</span>
-          </button>
+          <div class="faq-header">
+            Do you provide in-house catering and what are the rates?
+            <span class="faq-chevron">▼</span>
+          </div>
           <div class="faq-content">
-            <p>No, there is absolutely no reservation charge for dining tables or lounge sofas. Guests only pay for the food or beverages they order. For private party deck bookings (10-15 persons) during peak hours, we recommend booking online or calling us in advance.</p>
+            <p>Yes, we offer exquisite, customized in-house vegetarian catering featuring multi-cuisine selections (North Indian, Gujarati, Continental, Live Italian, and Fusion desserts). Pricing starts from ₹1,100 per plate for our Classic package, ₹1,500 for Royal Multi-Cuisine, and ₹1,800 for our Premium Signature Fusion package.</p>
           </div>
         </div>
 
         <!-- Q4 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            Do you offer open-air or garden dining?
-            <span class="faq-icon">▼</span>
-          </button>
+          <div class="faq-header">
+            Are external catering teams or decorators permitted?
+            <span class="faq-chevron">▼</span>
+          </div>
           <div class="faq-content">
-            <p>Yes, we feature a gorgeous outdoor garden patio beautifully lit with ambient lights, perfect for pleasant dinners and romantic evenings.</p>
+            <p>To guarantee food safety and five-star quality standards, external catering is generally not permitted. Our expert chefs can tailor the menu to include specific regional cuisines. For decor, we work with a panel of premium approved decorators to ensure structural integrity and premium design aesthetics, though external designers may be approved on a case-by-case basis.</p>
           </div>
         </div>
 
         <!-- Q5 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            What cuisines do you serve at Tamas?
-            <span class="faq-icon">▼</span>
-          </button>
+          <div class="faq-header">
+            What is the booking and cancellation policy?
+            <span class="faq-chevron">▼</span>
+          </div>
           <div class="faq-content">
-            <p>Tamas offers a diverse gourmet menu featuring Italian wood-fired pizzas, hand-rolled Japanese sushi, specialty mocktails, premium American burgers, and North Indian tandoori platters.</p>
+            <p>To secure a specific date, a 25% non-refundable advance booking deposit is required. The remaining payment is divided into subsequent milestones: 50% paid 30 days prior to the event, and the remaining 25% settled 7 days before the event starts. Dates can be rescheduled free of charge if requested at least 90 days in advance, subject to slot availability.</p>
           </div>
         </div>
 
         <!-- Q6 -->
         <div class="faq-item">
-          <button class="faq-trigger">
-            Do you have delivery options?
-            <span class="faq-icon">▼</span>
-          </button>
+          <div class="faq-header">
+            Are site visits and walkthroughs open to the public?
+            <span class="faq-chevron">▼</span>
+          </div>
           <div class="faq-content">
-            <p>Yes, we offer direct take-away orders. You can call us at +91 90530 00633 or +91 86890 00433 to place an order for self-pickup, or order online through local food delivery apps in Hisar.</p>
+            <p>Yes, our reservation desk is open daily from 9:00 AM to 9:00 PM for guided site walkthroughs and catering trials. We highly recommend booking an appointment via our contact form or calling our coordinator at +91 99256 75751 to ensure an event manager is available to assist you.</p>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            Do you provide power backup and sound system integration?
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-content">
+            <p>Yes, La Serata is equipped with a 100% silent generator power backup system that supports full hall lighting and air conditioning. We also provide integrated sound wiring, premium acoustical setups in the Royal Banquet Hall, and support for external DJ setups on the lawn within local regulatory decibel guidelines.</p>
           </div>
         </div>
 
@@ -238,33 +240,33 @@
   </section>
 
   <!-- CTA Questions Contact Section -->
-  <section class="section section-bg" style="padding: 60px 0;">
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border);">
     <div class="container text-center">
-      <h2 style="font-size: 1.75rem; margin-bottom: 16px;">Have any other questions?</h2>
+      <h2 style="font-family: var(--font-accent); font-weight: normal; font-size: 2rem; margin-bottom: 16px;">Have a Custom Request?</h2>
       <p style="margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; color: var(--text-muted);">
-        If your query isn't listed here, feel free to send us an inquiry via our contact page, or call our team directly.
+        If you have specific decoration themes, seating layouts, or custom dietary requests for your group booking, feel free to contact our events desk directly.
       </p>
       <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
         <a href="contact.html" class="btn btn-primary">Go to Contact Us</a>
-        <a href="tel:+919053000633" class="btn btn-outline">Call +91 90530 00633</a>
+        <a href="tel:+919925675751" class="btn btn-outline">Call Coordinator</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" style="border-top: 1px solid var(--border); background-color: var(--bg-secondary);">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="footer-brand-logo">
-            <img src="assets/logo.png" alt="Tamas By Symphony Logo" style="width: 40px; height: 40px; object-fit: contain; filter: brightness(1.2);">
-            <span class="footer-brand-logo-text">Tamas By Symphony</span>
+            <img src="assets/logo.png?v=2" alt="La Serata Logo" style="width: 40px; height: 40px; object-fit: contain; filter: brightness(1.2);">
+            <span class="footer-brand-logo-text" style="font-family: var(--font-accent);">La Serata</span>
           </div>
-          <div class="review-highlight-badge" style="margin-bottom: 15px;">★ 4.7/5 <span>Google Maps Rating</span></div>
-          <p class="footer-description">A premium multi-cuisine kitchen & vintage lounge opposite Vidyut Nagar, Hisar.</p>
+          <div class="review-highlight-badge" style="margin-bottom: 15px;">★ 4.8/5 <span>Google Maps Rating</span></div>
+          <p class="footer-description">Ahmedabad's premier destination for luxury banquets, open-air wedding functions, corporate meets, sangeets, and social events.</p>
         </div>
         <div>
-                    <h3>Navigation</h3>
+          <h3>Navigation</h3>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -272,17 +274,17 @@
             <li><a href="reviews.html">Guest Reviews</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact Info</a></li>
-            <li><a href="book.html">Table Booking</a></li>
+            <li><a href="book.html">Venue Booking</a></li>
           </ul>
         </div>
         <div>
-          <h3>Menu Highlights</h3>
+          <h3>Our Spaces</h3>
           <ul class="footer-links">
-            <li><a href="index.html">Wood-Fired Pizza</a></li>
-            <li><a href="index.html">Lotus Biscoff Cheesecake</a></li>
-            <li><a href="index.html">California Sushi Rolls</a></li>
-            <li><a href="index.html">Signature Symphony Burger</a></li>
-            <li><a href="index.html">Artisanal Mocktails / Shakes</a></li>
+            <li><a href="index.html">The Grand Lawn</a></li>
+            <li><a href="index.html">Royal Banquet Hall</a></li>
+            <li><a href="index.html">The Courtyard Garden</a></li>
+            <li><a href="index.html">VIP Bridal Suite</a></li>
+            <li><a href="index.html">Gourmet Live Catering</a></li>
           </ul>
         </div>
         <div>
@@ -291,38 +293,38 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
-            <span>+91 90530 00633</span>
+            <span>+91 99256 75751</span>
           </div>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            <span>Opposite Vidyut Nagar, Main Road, Sector 9-11, Hisar, Haryana 125005</span>
+            <span>Behind Shreedhar Corporate House, Near Shilaj Circle, Sardar Patel Ring Road, Shilaj, Ahmedabad, Gujarat 380059</span>
           </div>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            <span>Open Daily: 11:00 AM - 11:00 PM</span>
+            <span>Inquiries Daily: 9:00 AM - 9:00 PM</span>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="footer-year">2026</span> Tamas By Symphony Cafe. All rights reserved.</p>
-        <p style="font-size: 11px; margin-top: 5px; color: var(--text-muted)">Designed for gourmet dining, pizzas, sushi & cozy lounge vibes in Hisar.</p>
+        <p>&copy; <span id="footer-year">2026</span> La Serata Banquets & Party Lawn. All rights reserved.</p>
+        <p style="font-size: 11px; margin-top: 5px; color: var(--text-muted)">Designed for luxury weddings, corporate meets, sangeets, and social galas in Shilaj, Ahmedabad.</p>
       </div>
     </div>
   </footer>
 
   <!-- Sticky Mobile Navigation Actions (Bottom) -->
   <div class="sticky-mobile-actions">
-    <a href="tel:+919053000633" class="sticky-action-btn call" id="sticky-call">
+    <a href="tel:+919925675751" class="sticky-action-btn call" id="sticky-call">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
       </svg>
-      Call Cafe
+      Call Coordinator
     </a>
     <a href="book.html" class="sticky-action-btn book" id="sticky-book">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -331,12 +333,12 @@
         <line x1="8" y1="2" x2="8" y2="6"></line>
         <line x1="3" y1="10" x2="21" y2="10"></line>
       </svg>
-      Book Table
+      Book Venue
     </a>
   </div>
 
   <!-- WhatsApp Chat Bubble -->
-  <a href="https://wa.me/919053000633" target="_blank" class="whatsapp-bubble" aria-label="Chat on WhatsApp" id="floating-whatsapp">
+  <a href="https://wa.me/919925675751" target="_blank" class="whatsapp-bubble" aria-label="Chat on WhatsApp" id="floating-whatsapp">
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.92 9.92 0 0 0 4.887 1.332h.005c5.505 0 9.99-4.478 9.99-9.985a9.99 9.99 0 0 0-9.99-9.999zM6.837 17.521l-.285-.169a8.2 8.2 0 0 1-1.258-1.22l-.128-.168.324-1.238.283-1.077-.183-.3a8.21 8.21 0 0 1-.955-3.8c.002-4.545 3.702-8.243 8.256-8.243 2.203.001 4.276.861 5.837 2.424a8.19 8.19 0 0 1 2.417 5.83c-.002 4.547-3.702 8.244-8.255 8.244a8.22 8.22 0 0 1-3.953-.984l-.326-.188-1.242.325-1.11.29zm8.567-4.215c-.234-.117-1.384-.683-1.599-.761-.214-.078-.37-.117-.526.117-.156.234-.604.761-.741.918-.136.156-.273.175-.507.058-.234-.117-.988-.364-1.882-1.162-.696-.621-1.165-1.389-1.302-1.623-.137-.234-.015-.36.103-.477.106-.106.234-.273.35-.41.117-.136.156-.234.234-.39.078-.156.039-.293-.02-.41-.058-.117-.526-1.268-.721-1.737-.19-.459-.38-.396-.526-.404l-.448-.009c-.156 0-.41.059-.624.293-.214.234-.819.801-.819 1.954s.839 2.266.956 2.422c.117.156 1.653 2.525 4.004 3.539.559.241.996.386 1.337.494.562.179 1.074.154 1.479.093.451-.068 1.384-.566 1.579-1.113.195-.547.195-1.016.136-1.113-.058-.098-.214-.156-.448-.273z"></path>
     </svg>
@@ -344,28 +346,5 @@
 
   <!-- Global scripts -->
   <script src="js/main.js"></script>
-  <script>
-    // FAQ Accordion Trigger
-    const triggers = document.querySelectorAll(".faq-trigger");
-    triggers.forEach(t => {
-      t.addEventListener("click", () => {
-        const item = t.parentElement;
-        const isActive = item.classList.contains("active");
-        
-        // Close all items
-        document.querySelectorAll(".faq-item").forEach(i => {
-          i.classList.remove("active");
-          i.querySelector(".faq-content").style.maxHeight = null;
-        });
-
-        // If clicked item was not active, open it
-        if (!isActive) {
-          item.classList.add("active");
-          const content = item.querySelector(".faq-content");
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    });
-  </script>
 </body>
 </html>
