@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Generate a random booking reference code e.g., CN-8274
       const bookingCode = `CN-${Math.floor(1000 + Math.random() * 9000)}`;
 
-      // Save to localStorage for demo persistence
+      // Save to localStorage for demo persistence (wrapped in try-catch to avoid crashing on file:// protocol or private browsing modes)
       const reservation = {
         code: bookingCode,
         name,
@@ -79,9 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
         createdAt: new Date().toISOString()
       };
 
-      let existingReservations = JSON.parse(localStorage.getItem("laserata_venue_bookings") || "[]");
-      existingReservations.push(reservation);
-      localStorage.setItem("laserata_venue_bookings", JSON.stringify(existingReservations));
+      try {
+        let existingReservations = JSON.parse(localStorage.getItem("laserata_venue_bookings") || "[]");
+        existingReservations.push(reservation);
+        localStorage.setItem("laserata_venue_bookings", JSON.stringify(existingReservations));
+      } catch (err) {
+        console.warn("localStorage is blocked or restricted. Simulated booking running in-memory.", err);
+      }
 
       // Display Details in success panel
       document.getElementById("success-code").textContent = bookingCode;

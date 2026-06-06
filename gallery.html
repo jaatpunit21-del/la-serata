@@ -15,6 +15,18 @@
 
   <!-- Style Sheets -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Theme Init Script (Avoid FOIT) -->
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme) {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -50,7 +62,7 @@
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
             </svg>
           </a>
-          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <a href="https://www.instagram.com/laseratabanquets" target="_blank" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -81,6 +93,22 @@
         <a href="reviews.html" class="nav-link">Reviews</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="contact.html" class="nav-link">Contact</a>
+        <button class="theme-toggle-btn" aria-label="Toggle Theme" style="margin-right: 15px;">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
         <a href="book.html" class="btn btn-primary btn-sm" id="nav-book-btn" style="padding: 10px 20px; font-size: 14px;">Book Venue</a>
       </nav>
 
@@ -101,6 +129,22 @@
     <a href="reviews.html" class="mobile-nav-link">Reviews</a>
     <a href="faq.html" class="mobile-nav-link">FAQ</a>
     <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <button class="theme-toggle-btn" aria-label="Toggle Theme" style="align-self: center; margin: 15px 0 5px 0;">
+      <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
     <a href="book.html" class="btn btn-primary" style="margin-top: 15px;">Book Venue</a>
   </div>
 
@@ -162,7 +206,10 @@
       <div class="gallery-grid">
         <!-- Photo 1 -->
         <div class="gallery-card" data-category="lawn" data-title="Grand Palace Facade" style="border-color: var(--border);">
-          <img src="assets/hero_background.png?v=2" alt="The classical European-inspired facade of La Serata Banquets illuminated at sunset">
+          <picture>
+            <source srcset="assets/hero_background_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/hero_background.png?v=2" alt="The classical European-inspired facade of La Serata Banquets illuminated at sunset">
+          </picture>
           <div class="gallery-overlay">
             <span class="gallery-category">The Lawns</span>
             <h3 class="gallery-title" style="font-family: var(--font-heading);">Grand Palace Facade</h3>
@@ -171,7 +218,10 @@
 
         <!-- Photo 2 -->
         <div class="gallery-card" data-category="hall" data-title="Illuminated Classical Pillars" style="border-color: var(--border);">
-          <img src="assets/backgrounds/bg3.png?v=2" alt="Majestic classical columns and arched windows illuminated beautifully under the night sky">
+          <picture>
+            <source srcset="assets/backgrounds/bg3_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/backgrounds/bg3.png?v=2" alt="Majestic classical columns and arched windows illuminated beautifully under the night sky">
+          </picture>
           <div class="gallery-overlay">
             <span class="gallery-category">Banquet Halls</span>
             <h3 class="gallery-title" style="font-family: var(--font-heading);">Illuminated Classical Pillars</h3>
@@ -180,7 +230,10 @@
 
         <!-- Photo 3 -->
         <div class="gallery-card" data-category="lawn" data-title="Grand Outdoor Mandap" style="border-color: var(--border);">
-          <img src="assets/backgrounds/bg2.png?v=2" alt="Exquisite outdoor wedding mandap setup on the lawn featuring gold and red floral strings">
+          <picture>
+            <source srcset="assets/backgrounds/bg2_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/backgrounds/bg2.png?v=2" alt="Exquisite outdoor wedding mandap setup on the lawn featuring gold and red floral strings">
+          </picture>
           <div class="gallery-overlay">
             <span class="gallery-category">The Lawns</span>
             <h3 class="gallery-title" style="font-family: var(--font-heading);">Grand Outdoor Mandap</h3>
@@ -189,7 +242,10 @@
 
         <!-- Photo 4 -->
         <div class="gallery-card" data-category="lawn" data-title="Royal Mandap Stage" style="border-color: var(--border);">
-          <img src="assets/tiramisu_shake.png?v=2" alt="The beautifully detailed wedding seating and floral background under a grand white canopy">
+          <picture>
+            <source srcset="assets/tiramisu_shake_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/tiramisu_shake.png?v=2" alt="The beautifully detailed wedding seating and floral background under a grand white canopy">
+          </picture>
           <div class="gallery-overlay">
             <span class="gallery-category">The Lawns</span>
             <h3 class="gallery-title" style="font-family: var(--font-heading);">Royal Mandap Stage</h3>
@@ -198,7 +254,10 @@
 
         <!-- Photo 5 -->
         <div class="gallery-card" data-category="hall" data-title="Bespoke Floral Entryway" style="border-color: var(--border);">
-          <img src="assets/book_nook.png?v=2" alt="A custom floral photo entryway featuring elegant white floral arrangements and uplighting">
+          <picture>
+            <source srcset="assets/book_nook_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/book_nook.png?v=2" alt="A custom floral photo entryway featuring elegant white floral arrangements and uplighting">
+          </picture>
           <div class="gallery-overlay">
             <span class="gallery-category">Banquet Halls</span>
             <h3 class="gallery-title" style="font-family: var(--font-heading);">Bespoke Floral Entryway</h3>
@@ -207,7 +266,10 @@
 
         <!-- Photo 6 -->
         <div class="gallery-card" data-category="lawn" data-title="Contemporary Theme Decor" style="border-color: var(--border);">
-          <img src="assets/gourmet_sub.png?v=2" alt="Chic, modern event welcome station featuring pastel vases, flowers, and colorful geometric styling">
+          <picture>
+            <source srcset="assets/gourmet_sub_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/gourmet_sub.png?v=2" alt="Chic, modern event welcome station featuring pastel vases, flowers, and colorful geometric styling">
+          </picture>
           <div class="gallery-overlay">
             <span class="gallery-category">The Lawns</span>
             <h3 class="gallery-title" style="font-family: var(--font-heading);">Contemporary Theme Decor</h3>

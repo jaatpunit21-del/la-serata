@@ -1,4 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Theme Toggle Persistence & Application Logic
+  const themeToggleBtns = document.querySelectorAll(".theme-toggle-btn");
+  
+  const getSavedTheme = () => {
+    try {
+      return localStorage.getItem("theme") || "dark";
+    } catch (e) {
+      console.warn("localStorage is not accessible:", e);
+      return "dark";
+    }
+  };
+
+  const saveTheme = (theme) => {
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (e) {
+      console.warn("localStorage is not accessible:", e);
+    }
+  };
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+  };
+
+  // Initialize theme on page load (sync state to buttons)
+  const currentTheme = getSavedTheme();
+  applyTheme(currentTheme);
+
+  // Bind click event to all theme toggle buttons
+  themeToggleBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const activeTheme = document.documentElement.getAttribute("data-theme") || "dark";
+      const newTheme = activeTheme === "light" ? "dark" : "light";
+      applyTheme(newTheme);
+      saveTheme(newTheme);
+    });
+  });
+
   // Mobile Nav Drawer Toggle
   const menuToggle = document.getElementById("menu-toggle");
   const mobileNav = document.getElementById("mobile-nav");
@@ -75,7 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (galleryCards.length > 0 && lightbox && lightboxImg) {
     galleryCards.forEach(card => {
       card.addEventListener("click", () => {
-        const imgSrc = card.getAttribute("data-src") || card.querySelector("img").src;
+        let imgSrc = card.getAttribute("data-src") || card.querySelector("img").src;
+        if (window.innerWidth <= 768) {
+          // Serve mobile-optimized WebP version in the lightbox on mobile
+          imgSrc = imgSrc.replace(".png", "_mobile.webp");
+          if (imgSrc.includes("?")) {
+            imgSrc = imgSrc.split("?")[0];
+          }
+        }
         const title = card.getAttribute("data-title") || card.querySelector(".gallery-title").textContent;
         
         lightboxImg.src = imgSrc;
@@ -190,6 +235,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     baRangeInput.addEventListener("input", updateSlider);
     
+    // Custom touch handling to enable dragging on mobile screens without scrolling the page
+    const setSliderPosition = (clientX) => {
+      const rect = baSlider.getBoundingClientRect();
+      let x = clientX - rect.left;
+      if (x < 0) x = 0;
+      if (x > rect.width) x = rect.width;
+      
+      const percentage = (x / rect.width) * 100;
+      baBeforePanel.style.width = `${percentage}%`;
+      baSliderHandle.style.left = `${percentage}%`;
+      baRangeInput.value = percentage;
+    };
+
+    const handleTouch = (e) => {
+      if (e.touches && e.touches[0]) {
+        // Prevent default browser scrolling gestures while interacting with the comparison slider
+        e.preventDefault();
+        setSliderPosition(e.touches[0].clientX);
+      }
+    };
+
+    baRangeInput.addEventListener("touchstart", handleTouch, { passive: false });
+    baRangeInput.addEventListener("touchmove", handleTouch, { passive: false });
+    
     // Resize handler to keep the before image looking realistic (100% width of container)
     const resizeBeforeImg = () => {
       if (baBeforeImg) {
@@ -245,10 +314,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const tourSetup = document.querySelector("#tour-stat-setup");
   const tourViewer = document.querySelector(".tour-viewer-frame");
 
+  const isMobile = window.innerWidth <= 768;
+
   // Space data configuration
   const spaceData = {
     lounge: {
-      image: "assets/backgrounds/bg3.png?v=2",
+      image: isMobile ? "assets/backgrounds/bg3_mobile.webp" : "assets/backgrounds/bg3.png?v=2",
       title: "The Royal Banquet Hall",
       desc: "A majestic double-height hall featuring grand golden chandeliers, premium acoustic paneling, and an elegant stage setup. Perfect for royal weddings, receptions, and corporate conferences.",
       capacity: "300 Guests",
@@ -259,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     },
     garden: {
-      image: "assets/backgrounds/bg1.png?v=2",
+      image: isMobile ? "assets/backgrounds/bg1_mobile.webp" : "assets/backgrounds/bg1.png?v=2",
       title: "The Grand Lawn",
       desc: "Ahmedabad's finest lush green party lawn, sprawling over beautiful manicured gardens under the open sky. Perfect for grand reception starlit dinners, massive buffet spreads, and large scale social gatherings.",
       capacity: "800 Guests",
@@ -270,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     },
     dining: {
-      image: "assets/backgrounds/bg4.png?v=2",
+      image: isMobile ? "assets/backgrounds/bg4_mobile.webp" : "assets/backgrounds/bg4.png?v=2",
       title: "The Courtyard Garden",
       desc: "An intimate outdoor courtyard filled with natural flora and elegant tile paths. Ideal for sangeet nights, mehendi ceremonies, family get-togethers, or private cocktail celebrations.",
       capacity: "150 Guests",
@@ -281,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     },
     private: {
-      image: "assets/backgrounds/bg2.png?v=2",
+      image: isMobile ? "assets/backgrounds/bg2_mobile.webp" : "assets/backgrounds/bg2.png?v=2",
       title: "VIP Bridal Suite",
       desc: "An exclusive, fully air-conditioned private suite designed for bridal preparation, groom styling, or VIP greenroom hosting. Includes premium mirrors, private washrooms, and luxury couch seating.",
       capacity: "Exclusive Use",
@@ -349,6 +420,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const initialKey = tourTabs[0].getAttribute("data-space");
     if (spaceData[initialKey]) {
       renderHotspots(spaceData[initialKey].hotspots);
+      if (isMobile) {
+        tourBgPan.style.backgroundImage = `url('${spaceData[initialKey].image}')`;
+      }
     }
   }
 });

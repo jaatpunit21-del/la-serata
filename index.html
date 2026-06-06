@@ -69,6 +69,16 @@
       }
     ]
   }
+  <!-- Theme Init Script (Avoid FOIT) -->
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme) {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (e) {}
+    })();
   </script>
 </head>
 <body>
@@ -105,7 +115,7 @@
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
             </svg>
           </a>
-          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <a href="https://www.instagram.com/laseratabanquets" target="_blank" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -136,6 +146,22 @@
         <a href="reviews.html" class="nav-link ">Reviews</a>
         <a href="faq.html" class="nav-link ">FAQ</a>
         <a href="contact.html" class="nav-link ">Contact</a>
+        <button class="theme-toggle-btn" aria-label="Toggle Theme" style="margin-right: 15px;">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
         <a href="book.html" class="btn btn-primary btn-sm" id="nav-book-btn" style="padding: 10px 20px; font-size: 14px;">Book Venue</a>
       </nav>
 
@@ -156,6 +182,22 @@
     <a href="reviews.html" class="mobile-nav-link ">Reviews</a>
     <a href="faq.html" class="mobile-nav-link ">FAQ</a>
     <a href="contact.html" class="mobile-nav-link ">Contact</a>
+    <button class="theme-toggle-btn" aria-label="Toggle Theme" style="align-self: center; margin: 15px 0 5px 0;">
+      <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
     <a href="book.html" class="btn btn-primary" style="margin-top: 15px;">Book Venue</a>
   </div>
 
@@ -193,8 +235,15 @@
   </section>
 
   <!-- Hero Section -->
-  <section class="hero" style="background: linear-gradient(180deg, rgba(9,8,7,0.4) 0%, rgba(9,8,7,0.95) 100%), url('assets/backgrounds/bg1.png?v=2') center/cover no-repeat; min-height: 90vh; display: flex; align-items: center; padding: 120px 0 80px 0;">
-    <div class="container hero-grid">
+  <section class="hero" style="min-height: 90vh; display: flex; align-items: center; padding: 120px 0 80px 0; position: relative;">
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="hero-video-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none;">
+      <source src="assets/backgrounds/hero_video.mp4" type="video/mp4">
+    </video>
+    <!-- Overlay Gradient to ensure text readability -->
+    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, var(--hero-overlay-start) 0%, var(--hero-overlay-end) 100%); z-index: 2; pointer-events: none; transition: background-color 0.3s ease;"></div>
+
+    <div class="container hero-grid" style="position: relative; z-index: 3;">
       <div>
         <div class="champagne-tag">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px; color: var(--primary-hover);">
@@ -228,7 +277,10 @@
       <div class="hero-graphic">
         <div class="gold-border-frame" style="width: 100%; max-width: 440px; box-shadow: var(--shadow-lg);">
           <div class="gold-border-frame-inner" style="padding: 0; overflow: hidden; height: 400px; border-radius: calc(var(--radius-lg) - 8px);">
-            <img src="assets/hero_background.png?v=2" alt="Luxury wedding setup at La Serata Banquets & Lawn Ahmedabad" style="width: 100%; height: 100%; object-fit: cover;">
+            <picture>
+              <source srcset="assets/hero_background_mobile.webp" media="(max-width: 768px)" type="image/webp">
+              <img src="assets/hero_background.png?v=2" alt="Luxury wedding setup at La Serata Banquets & Lawn Ahmedabad" style="width: 100%; height: 100%; object-fit: cover;">
+            </picture>
           </div>
           
           <div class="art-floating-element art-floating-1" style="background: rgba(19, 17, 15, 0.9); border-color: var(--primary-hover);">
@@ -267,10 +319,16 @@
       <div class="grid grid-2" style="align-items: center; gap: 60px;">
         <div class="interactive-ba-slider">
           <div class="ba-after-panel">
-            <img src="assets/backgrounds/bg3.png?v=2" alt="La Serata Banquet Cozy Evening Ambiance" style="width: 100%; height: 100%; object-fit: cover;">
+            <picture>
+              <source srcset="assets/backgrounds/bg3_mobile.webp" media="(max-width: 768px)" type="image/webp">
+              <img src="assets/backgrounds/bg3.png?v=2" alt="La Serata Banquet Cozy Evening Ambiance" style="width: 100%; height: 100%; object-fit: cover;">
+            </picture>
           </div>
           <div class="ba-before-panel">
-            <img src="assets/backgrounds/bg2.png?v=2" alt="La Serata Lawn Day Ambiance" class="ba-before-img" style="height: 100%; object-fit: cover;">
+            <picture>
+              <source srcset="assets/backgrounds/bg2_mobile.webp" media="(max-width: 768px)" type="image/webp">
+              <img src="assets/backgrounds/bg2.png?v=2" alt="La Serata Lawn Day Ambiance" class="ba-before-img" style="height: 100%; object-fit: cover;">
+            </picture>
           </div>
           <div class="ba-slider-handle"></div>
           <input type="range" min="0" max="100" value="50" class="ba-range-input" aria-label="Drag slider to compare Day and Night settings">
@@ -411,7 +469,10 @@
  
         <!-- Grand Wedding Result -->
         <div class="mood-result-card active" id="mood-wedding">
-          <img src="assets/gourmet_sub.png?v=2" alt="Grand Wedding Ceremony" class="mood-result-img" style="border-color: var(--border);">
+          <picture>
+            <source srcset="assets/gourmet_sub_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/gourmet_sub.png?v=2" alt="Grand Wedding Ceremony" class="mood-result-img" style="border-color: var(--border);">
+          </picture>
           <div class="mood-result-details">
             <span class="mood-match-tag" style="background: var(--gold-gradient); color: var(--bg-primary);">Perfect Match</span>
             <h3 style="font-family: var(--font-heading); margin-top: 8px;">Grand Wedding Ceremony</h3>
@@ -423,7 +484,10 @@
  
         <!-- Reception Result -->
         <div class="mood-result-card" id="mood-reception">
-          <img src="assets/tiramisu_shake.png?v=2" alt="Grand Reception Gala" class="mood-result-img" style="border-color: var(--border);">
+          <picture>
+            <source srcset="assets/tiramisu_shake_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/tiramisu_shake.png?v=2" alt="Grand Reception Gala" class="mood-result-img" style="border-color: var(--border);">
+          </picture>
           <div class="mood-result-details">
             <span class="mood-match-tag" style="background: var(--gold-gradient); color: var(--bg-primary);">Perfect Match</span>
             <h3 style="font-family: var(--font-heading); margin-top: 8px;">Grand Reception Gala</h3>
@@ -435,7 +499,10 @@
  
         <!-- Intimate Social Result -->
         <div class="mood-result-card" id="mood-social">
-          <img src="assets/book_nook.png?v=2" alt="Engagement & Sangeet" class="mood-result-img" style="border-color: var(--border);">
+          <picture>
+            <source srcset="assets/book_nook_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/book_nook.png?v=2" alt="Engagement & Sangeet" class="mood-result-img" style="border-color: var(--border);">
+          </picture>
           <div class="mood-result-details">
             <span class="mood-match-tag" style="background: var(--gold-gradient); color: var(--bg-primary);">Perfect Match</span>
             <h3 style="font-family: var(--font-heading); margin-top: 8px;">Engagement & Sangeet</h3>
@@ -447,7 +514,10 @@
  
         <!-- Corporate Gala Result -->
         <div class="mood-result-card" id="mood-corporate">
-          <img src="assets/cheesy_pasta.png?v=2" alt="Corporate Seminars & Galas" class="mood-result-img" style="border-color: var(--border);">
+          <picture>
+            <source srcset="assets/cheesy_pasta_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/cheesy_pasta.png?v=2" alt="Corporate Seminars & Galas" class="mood-result-img" style="border-color: var(--border);">
+          </picture>
           <div class="mood-result-details">
             <span class="mood-match-tag" style="background: var(--gold-gradient); color: var(--bg-primary);">Perfect Match</span>
             <h3 style="font-family: var(--font-heading); margin-top: 8px;">Corporate Seminars & Galas</h3>
@@ -481,7 +551,10 @@
       <div class="menu-grid">
         <!-- Item 1 -->
         <article class="menu-item-card" data-category="indoor" style="border-color: var(--border);">
-          <img src="assets/tiramisu_shake.png?v=2" alt="Grand Banquet Hall Stage Setup" class="menu-item-img">
+          <picture>
+            <source srcset="assets/tiramisu_shake_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/tiramisu_shake.png?v=2" alt="Grand Banquet Hall Stage Setup" class="menu-item-img">
+          </picture>
           <div class="menu-item-content">
             <div class="menu-item-header">
               <h3 class="menu-item-title" style="font-family: var(--font-heading);">Grand Banquet Hall</h3>
@@ -494,7 +567,10 @@
 
         <!-- Item 2 -->
         <article class="menu-item-card" data-category="outdoor" style="border-color: var(--border);">
-          <img src="assets/hero_background.png?v=2" alt="La Serata Grand Lawn & Facade" class="menu-item-img">
+          <picture>
+            <source srcset="assets/hero_background_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/hero_background.png?v=2" alt="La Serata Grand Lawn & Facade" class="menu-item-img">
+          </picture>
           <div class="menu-item-content">
             <div class="menu-item-header">
               <h3 class="menu-item-title" style="font-family: var(--font-heading);">Royal Party Lawn</h3>
@@ -507,7 +583,10 @@
 
         <!-- Item 3 -->
         <article class="menu-item-card" data-category="outdoor" style="border-color: var(--border);">
-          <img src="assets/gourmet_sub.png?v=2" alt="Bespoke Wedding Mandap Decor" class="menu-item-img">
+          <picture>
+            <source srcset="assets/gourmet_sub_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/gourmet_sub.png?v=2" alt="Bespoke Wedding Mandap Decor" class="menu-item-img">
+          </picture>
           <div class="menu-item-content">
             <div class="menu-item-header">
               <h3 class="menu-item-title" style="font-family: var(--font-heading);">Luxury Mandap & Decor</h3>
@@ -520,7 +599,10 @@
 
         <!-- Item 4 -->
         <article class="menu-item-card" data-category="indoor" style="border-color: var(--border);">
-          <img src="assets/cheesy_pasta.png?v=2" alt="Elite Bridal & VIP Grooming Suites" class="menu-item-img">
+          <picture>
+            <source srcset="assets/cheesy_pasta_mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <img src="assets/cheesy_pasta.png?v=2" alt="Elite Bridal & VIP Grooming Suites" class="menu-item-img">
+          </picture>
           <div class="menu-item-content">
             <div class="menu-item-header">
               <h3 class="menu-item-title" style="font-family: var(--font-heading);">Elite VIP & Bridal Suites</h3>

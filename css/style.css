@@ -21,6 +21,13 @@
   --border-light: rgba(197, 162, 125, 0.15);
   --gold-glow: rgba(212, 175, 55, 0.2);
   --gold-gradient: linear-gradient(135deg, #c5a27d 0%, #d4af37 100%);
+
+  /* Scrolled header, hero backgrounds, and tour vignette variables */
+  --bg-header-scrolled: rgba(9, 8, 7, 0.95);
+  --hero-overlay-start: rgba(9, 8, 7, 0.4);
+  --hero-overlay-end: rgba(9, 8, 7, 0.95);
+  --tour-vignette: rgba(9, 8, 7, 0.7);
+  --bg-glass-card: rgba(27, 23, 20, 0.75);
   
   /* Fonts */
   --font-heading: 'Playfair Display', Georgia, serif;
@@ -41,6 +48,38 @@
   
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --container-width: 1200px;
+}
+
+/* Light Mode (Ocean Sky Theme) Override */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f9ff;
+  --bg-card: #ffffff;
+  --primary: #0077b6;
+  --primary-hover: #0096c7;
+  --primary-light: #090807;
+  --primary-dark: #005f73;
+  --text-main: #090807;
+  --text-muted: #4a5568;
+  --border: #bae6fd;
+  --border-light: rgba(0, 119, 182, 0.15);
+  --gold-glow: rgba(0, 119, 182, 0.2);
+  --gold-gradient: linear-gradient(135deg, #0096c7 0%, #0077b6 100%);
+  
+  --shadow-sm: 0 2px 8px rgba(9, 8, 7, 0.15);
+  --shadow-md: 0 8px 24px rgba(9, 8, 7, 0.1);
+  --shadow-lg: 0 16px 40px rgba(9, 8, 7, 0.15);
+  --shadow-glow: 0 0 25px rgba(0, 119, 182, 0.2);
+
+  --bg-header-scrolled: rgba(255, 255, 255, 0.95);
+  --hero-overlay-start: rgba(255, 255, 255, 0.4);
+  --hero-overlay-end: rgba(255, 255, 255, 0.95);
+  --tour-vignette: rgba(255, 255, 255, 0.7);
+  --bg-glass-card: rgba(255, 255, 255, 0.75);
+}
+
+body, header, footer, section, .card-why, .card-service, .card-review, .menu-item-card, .glass-card {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Global Reset */
@@ -375,6 +414,14 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
+[data-theme="light"] .theme-toggle-btn .moon-icon {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle-btn .sun-icon {
+  display: block;
+}
+
 /* Mobile Nav Toggle */
 .menu-toggle {
   display: flex;
@@ -473,6 +520,31 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   overflow: hidden;
   transition: var(--transition);
+  background: linear-gradient(180deg, var(--hero-overlay-start) 0%, var(--hero-overlay-end) 100%), 
+              url('../assets/backgrounds/bg1.png?v=2') center/cover no-repeat !important;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--hero-overlay-start) 0%, var(--hero-overlay-end) 100%);
+  z-index: 2;
+  pointer-events: none;
+  transition: background-color 0.3s ease;
 }
 
 .hero-grid {
@@ -1038,6 +1110,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .ba-before-panel {
   width: 50%;
+  overflow: hidden;
 }
 
 .ba-before-img {
@@ -1909,14 +1982,14 @@ textarea.form-control {
 
 /* Scrolled Header Effect */
 .header.scrolled {
-  background: rgba(9, 8, 7, 0.95) !important;
+  background: var(--bg-header-scrolled) !important;
   border-bottom: 1px solid var(--border) !important;
   box-shadow: var(--shadow-md) !important;
 }
 
 /* Glassmorphic Cards & Badges */
 .glass-card {
-  background: rgba(27, 23, 20, 0.75);
+  background: var(--bg-glass-card);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
@@ -2018,6 +2091,14 @@ textarea.form-control {
   border: 1px solid var(--border);
   height: 300px;
   box-shadow: var(--shadow-sm);
+}
+
+/* Mobile Image & Background Performance Overrides */
+@media (max-width: 768px) {
+  .hero {
+    background: linear-gradient(180deg, var(--hero-overlay-start) 0%, var(--hero-overlay-end) 100%), 
+                url('../assets/backgrounds/bg1_mobile.webp') center/cover no-repeat !important;
+  }
 }
 
 /* Redesigned Top Bar */
@@ -2151,7 +2232,7 @@ textarea.form-control {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, transparent 35%, rgba(9, 8, 7, 0.7) 100%);
+  background: radial-gradient(circle at center, transparent 35%, var(--tour-vignette) 100%);
   pointer-events: none;
 }
 
